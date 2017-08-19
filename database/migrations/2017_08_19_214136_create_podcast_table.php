@@ -13,7 +13,7 @@ class CreatePodcastTable extends Migration
      */
     public function up()
     {
-        Schema::create('podcasts', function(Blueprint $table){
+        Schema::create('sites', function(Blueprint $table){
             $table->increments('id');
             $table->string('title');
             $table->string('link');
@@ -30,6 +30,6 @@ class CreatePodcastTable extends Migration
      */
     public function down()
     {
-        Schema::drop('podcasts');
+        Schema::drop('sites');
     }
 }
