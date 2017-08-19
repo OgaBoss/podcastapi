@@ -15,18 +15,19 @@ class CreatePodcastsTable extends Migration
     {
         Schema::create('pod_casts', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('site_id');
-            $table->string('title');
-            $table->string('guid');
-            $table->string('link');
-            $table->string('pub_date');
-            $table->string('author');
-            $table->string('description');
-            $table->string('audio');
-            $table->string('type');
-            $table->string('duration');
-            $table->string('length');
-            $table->text('content');
+            $table->integer('site_id')->unsigned();
+            $table->string('title')->nullable();
+            $table->string('guid')->nullable();
+            $table->string('link')->nullable();
+            $table->string('pub_date')->nullable();
+            $table->string('author')->nullable();
+            $table->string('description')->nullable();
+            $table->string('audio')->nullable();
+            $table->string('type')->nullable();
+            $table->string('duration')->nullable();
+            $table->string('length')->nullable();
+            $table->text('content')->nullable();
+            $table->timestamps();
 
             $table->unique('guid');
             $table->index(['guid', 'pub_date']);

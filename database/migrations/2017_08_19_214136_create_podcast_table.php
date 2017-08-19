@@ -14,12 +14,13 @@ class CreatePodcastTable extends Migration
     public function up()
     {
         Schema::create('sites', function(Blueprint $table){
-            $table->increments('id');
-            $table->string('title');
-            $table->string('link');
-            $table->string('author');
-            $table->string('description');
-            $table->string('image');
+            $table->increments('id')->unsigned();
+            $table->string('title')->nullable();
+            $table->string('link')->nullable();
+            $table->string('author')->nullable();
+            $table->string('description')->nullable();
+            $table->string('image')->nullable();
+            $table->timestamps();
         });
     }
 
