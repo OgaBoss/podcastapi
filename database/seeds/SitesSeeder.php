@@ -1,5 +1,6 @@
 <?php
 
+use App\Site;
 use GuzzleHttp\Client;
 use Illuminate\Database\Seeder;
 
@@ -11,12 +12,19 @@ class SitesSeeder extends Seeder
     protected $client;
 
     /**
+     * @var Site
+     */
+    protected $site;
+
+    /**
      * DatabaseSeeder constructor.
      * @param Client $client
+     * @param Site $site
      */
-    public function __construct(Client $client)
+    public function __construct(Client $client, Site $site)
     {
         $this->client = $client;
+        $this->site = $site;
     }
 
 
@@ -28,6 +36,17 @@ class SitesSeeder extends Seeder
     public function run()
     {
         $contents = $this->getJsonData();
+        $this->site->title = $contents->feed->title;
+        $this->site->link = $contents->feed->link;
+        $this->site->author = $contents->feed->author;
+        $this->site->description = $contents->feed->description;
+        $this->site->image = $contents->feed->image;
+
+        if($this->site->save()){
+            echo 'Data Saved';
+        }else {
+            echo 'Something went wrong';
+        }
 
     }
 
