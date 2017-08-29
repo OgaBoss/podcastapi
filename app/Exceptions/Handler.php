@@ -45,6 +45,11 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $e)
     {
+        throw $e;
+
+        if (method_exists($exception, 'render')) {
+            return $exception->render($request);
+        }
         return parent::render($request, $e);
     }
 }

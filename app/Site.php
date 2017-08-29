@@ -15,4 +15,8 @@ class Site extends Model
     public $table = 'sites';
     public $fillable = ['*'];
 
+    public function podCasts(){
+        return $this->hasMany('App\Podcast');
+    }
+
 }
