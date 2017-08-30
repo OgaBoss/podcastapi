@@ -53,7 +53,7 @@ class SitesSeeder extends Seeder
 
     private function getJsonData()
     {
-        $uri = 'https://api.rss2json.com/v1/api.json?rss_url='. urlencode('http://feeds.feedburner.com/MageTalkAMagentoPodcast') .'&api_key='.env('API_KEY');
+        $uri = 'https://api.rss2json.com/v1/api.json?rss_url='. urlencode('https://rss.simplecast.com/podcasts/279/rss') .'&api_key='.env('API_KEY');
 
         $api_req = $this->client->request('GET', $uri);
 
