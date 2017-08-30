@@ -11,10 +11,16 @@ class SitesTest extends TestCase
     /** @test */
     public function get_a_list_of_sites()
     {
+
+
         $this->json('get', '/api/sites')
             ->seeJsonContains([
                 'id',
-                'title'
+                'title',
+                'link',
+                'author',
+                'description',
+                'image',
             ]);
     }
 }

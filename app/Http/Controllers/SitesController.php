@@ -11,6 +11,6 @@ namespace App\Http\Controllers;
 class SitesController extends Controller
 {
     public function index() {
-
+        return response()->json(['author' => 'Dami']);
     }
 }
